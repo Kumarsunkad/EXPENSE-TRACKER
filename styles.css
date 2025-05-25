@@ -1,0 +1,336 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --error-color: #f44336;
+    --success-color: #4CAF50;
+    --warning-color: #ff9800;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --background-light: #f5f5f5;
+    --background-dark: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-light);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--background-dark);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.app-header h1 {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.balance-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.balance-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.balance-card:hover {
+    transform: translateY(-5px);
+}
+
+.balance-card.credit {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.balance-card.debit {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.balance-card.total {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.balance-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.balance-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.app-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.transaction-form {
+    background-color: var(--background-light);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.transaction-form h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-prefix {
+    position: absolute;
+    left: 10px;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.type-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.type-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.type-btn.credit {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.type-btn.debit {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.type-btn.active {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.transactions {
+    background-color: var(--background-light);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.transaction-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.transaction-list {
+    min-height: 200px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.transaction-item:hover {
+    transform: translateY(-3px);
+}
+
+.transaction-details {
+    flex: 1;
+}
+
+.transaction-details .amount {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.transaction-details .category {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.transaction-details .description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.transaction-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.delete-btn {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.edit-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.delete-btn:hover {
+    background-color: #ffcdd2;
+}
+
+.no-transactions {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.no-transactions i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--warning-color);
+}
+
+@media (max-width: 768px) {
+    .app-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .transaction-form {
+        padding: 1.5rem;
+    }
+    
+    .balance-summary {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Expense Tracker</h1>
+            <div class="balance-summary">
+                <div class="balance-card credit">
+                    <h3>Credit</h3>
+                    <p id="totalCredit">₹0</p>
+                </div>
+                <div class="balance-card debit">
+                    <h3>Debit</h3>
+                    <p id="totalDebit">₹0</p>
+                </div>
+                <div class="balance-card total">
+                    <h3>Total Balance</h3>
+                    <p id="totalBalance">₹0</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- Transaction Form -->
+            <section class="transaction-form">
+                <h2>Add New Transaction</h2>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <div class="input-group">
+                            <span class="input-prefix">₹</span>
+                            <input type="number" id="amount" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Transaction Type:</label>
+                        <div class="type-selector">
+                            <button type="button" class="type-btn credit active" data-type="credit">
+                                <i class="fas fa-arrow-up"></i> Credit
+                            </button>
+                            <button type="button" class="type-btn debit" data-type="debit">
+                                <i class="fas fa-arrow-down"></i> Debit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" required>
+                            <option value="food">🍔 Food</option>
+                            <option value="transport">🚗 Transport</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="salary">💰 Salary</option>
+                            <option value="other">📝 Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" placeholder="e.g., Monthly Salary">
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </button>
+                </form>
+            </section>
+
+            <!-- Transactions List -->
+            <section class="transactions">
+                <div class="transaction-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="credit">Credit</button>
+                    <button class="filter-btn" data-filter="debit">Debit</button>
+                </div>
+                <div class="transaction-list" id="transactionsList"></div>
+                <div class="no-transactions" id="noTransactions">
+                    <i class="fas fa-wallet"></i>
+                    <p>No transactions yet. Add your first transaction!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
